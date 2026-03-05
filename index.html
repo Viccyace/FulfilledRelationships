@@ -51,7 +51,7 @@
       if (!pixelLoaded) { pixelLoaded = true; loadPixel(); }
     }
     setTimeout(triggerPixel, 2000);
-    ['scroll','click','touchstart','mousemove'].forEach(function(e) {
+    ['scroll', 'click', 'touchstart', 'mousemove'].forEach(function (e) {
       window.addEventListener(e, triggerPixel, { once: true, passive: true });
     });
   </script>
@@ -68,7 +68,9 @@
     href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,600;0,700;1,300;1,700&family=DM+Sans:wght@300;400&display=swap"
     rel="stylesheet" media="print" onload="this.media='all'" />
   <noscript>
-    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,600;0,700;1,300;1,700&family=DM+Sans:wght@300;400&display=swap" rel="stylesheet"/>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,600;0,700;1,300;1,700&family=DM+Sans:wght@300;400&display=swap"
+      rel="stylesheet" />
   </noscript>
   <style>
     *,
@@ -97,43 +99,91 @@
 
     /* Respect user device performance preference */
     @media (prefers-reduced-motion: reduce) {
-      *, *::before, *::after {
+
+      *,
+      *::before,
+      *::after {
         animation-duration: 0.01ms !important;
         animation-iteration-count: 1 !important;
         transition-duration: 0.01ms !important;
       }
-      html { scroll-behavior: auto; }
+
+      html {
+        scroll-behavior: auto;
+      }
     }
 
     /* ── URGENCY BAR ───────────────────────────────── */
     .urgency-bar {
-      position: fixed; top: 0; left: 0; right: 0; z-index: 300;
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 300;
       background: linear-gradient(90deg, #8B1A1A 0%, #B22222 50%, #8B1A1A 100%);
       padding: 8px 12px;
       height: 36px;
-      display: flex; align-items: center; justify-content: center;
-      gap: 8px; flex-wrap: nowrap; overflow: hidden;
-      font-size: 0.68rem; font-weight: 500;
-      letter-spacing: 0.04em; color: #fff;
-      border-bottom: 1px solid rgba(255,255,255,0.1);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      flex-wrap: nowrap;
+      overflow: hidden;
+      font-size: 0.68rem;
+      font-weight: 500;
+      letter-spacing: 0.04em;
+      color: #fff;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
       white-space: nowrap;
     }
-    .urgency-bar .fire { font-size: 0.8rem; flex-shrink: 0; }
-    .urgency-bar .urgency-label { display: inline; }
-    .urgency-bar strong { color: #FFD700; }
-    .urgency-bar .countdown-wrap {
-      display: inline-flex; align-items: center; gap: 4px;
-      background: rgba(0,0,0,0.25); border-radius: 4px;
-      padding: 2px 8px; font-family: 'DM Sans', monospace;
+
+    .urgency-bar .fire {
+      font-size: 0.8rem;
       flex-shrink: 0;
     }
-    .urgency-bar .countdown-wrap span { font-weight: 700; color: #FFD700; font-size: 0.82rem; }
-    .urgency-bar .countdown-label { font-size: 0.58rem; color: rgba(255,255,255,0.7); }
-    .urgency-bar .urgency-tail { flex-shrink: 0; }
+
+    .urgency-bar .urgency-label {
+      display: inline;
+    }
+
+    .urgency-bar strong {
+      color: #FFD700;
+    }
+
+    .urgency-bar .countdown-wrap {
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      background: rgba(0, 0, 0, 0.25);
+      border-radius: 4px;
+      padding: 2px 8px;
+      font-family: 'DM Sans', monospace;
+      flex-shrink: 0;
+    }
+
+    .urgency-bar .countdown-wrap span {
+      font-weight: 700;
+      color: #FFD700;
+      font-size: 0.82rem;
+    }
+
+    .urgency-bar .countdown-label {
+      font-size: 0.58rem;
+      color: rgba(255, 255, 255, 0.7);
+    }
+
+    .urgency-bar .urgency-tail {
+      flex-shrink: 0;
+    }
 
     /* push nav below urgency bar - nav height ~72px + 36px bar = 108px */
-    body.has-urgency nav { top: 36px !important; }
-    body.has-urgency .hero { padding-top: 8rem; }
+    body.has-urgency nav {
+      top: 36px !important;
+    }
+
+    body.has-urgency .hero {
+      padding-top: 8rem;
+    }
 
     @media (max-width: 768px) {
       .urgency-bar {
@@ -147,134 +197,266 @@
         line-height: 1.4;
         white-space: normal;
       }
-      .urgency-bar .urgency-label { display: inline; }
-      .urgency-bar .urgency-tail { display: inline; }
-      body.has-urgency nav { top: 48px !important; }
-      body.has-urgency .hero { padding-top: 8rem; }
+
+      .urgency-bar .urgency-label {
+        display: inline;
+      }
+
+      .urgency-bar .urgency-tail {
+        display: inline;
+      }
+
+      body.has-urgency nav {
+        top: 48px !important;
+      }
+
+      body.has-urgency .hero {
+        padding-top: 8rem;
+      }
     }
+
     @media (max-width: 380px) {
-      .urgency-bar { font-size: 0.62rem; min-height: 52px; }
-      body.has-urgency nav { top: 52px !important; }
+      .urgency-bar {
+        font-size: 0.62rem;
+        min-height: 52px;
+      }
+
+      body.has-urgency nav {
+        top: 52px !important;
+      }
     }
 
     /* ── WHATSAPP FLOAT BUTTON ─────────────────────── */
     .whatsapp-btn {
-      position: fixed; bottom: 90px; right: 20px; z-index: 500;
-      width: 56px; height: 56px; border-radius: 50%;
+      position: fixed;
+      bottom: 90px;
+      right: 20px;
+      z-index: 500;
+      width: 56px;
+      height: 56px;
+      border-radius: 50%;
       background: #25D366;
-      display: flex; align-items: center; justify-content: center;
-      box-shadow: 0 4px 20px rgba(37,211,102,0.45);
-      text-decoration: none; color: white;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 4px 20px rgba(37, 211, 102, 0.45);
+      text-decoration: none;
+      color: white;
       transition: transform 0.3s, box-shadow 0.3s;
       animation: waBounce 3s ease infinite;
     }
+
     .whatsapp-btn:hover {
       transform: scale(1.1);
-      box-shadow: 0 8px 30px rgba(37,211,102,0.6);
+      box-shadow: 0 8px 30px rgba(37, 211, 102, 0.6);
     }
-    .whatsapp-btn svg { width: 28px; height: 28px; }
+
+    .whatsapp-btn svg {
+      width: 28px;
+      height: 28px;
+    }
+
     .whatsapp-tooltip {
-      position: absolute; right: 66px; top: 50%;
+      position: absolute;
+      right: 66px;
+      top: 50%;
       transform: translateY(-50%);
-      background: #1a1a1a; color: #fff;
-      font-size: 0.72rem; white-space: nowrap;
-      padding: 6px 12px; border-radius: 6px;
-      opacity: 0; pointer-events: none;
+      background: #1a1a1a;
+      color: #fff;
+      font-size: 0.72rem;
+      white-space: nowrap;
+      padding: 6px 12px;
+      border-radius: 6px;
+      opacity: 0;
+      pointer-events: none;
       transition: opacity 0.3s;
-      border: 1px solid rgba(255,255,255,0.1);
+      border: 1px solid rgba(255, 255, 255, 0.1);
     }
+
     .whatsapp-tooltip::after {
-      content: ''; position: absolute; left: 100%; top: 50%;
+      content: '';
+      position: absolute;
+      left: 100%;
+      top: 50%;
       transform: translateY(-50%);
       border: 5px solid transparent;
       border-left-color: #1a1a1a;
     }
-    .whatsapp-btn:hover .whatsapp-tooltip { opacity: 1; }
+
+    .whatsapp-btn:hover .whatsapp-tooltip {
+      opacity: 1;
+    }
+
     @keyframes waBounce {
-      0%,100%{transform:translateY(0)} 50%{transform:translateY(-6px)}
+
+      0%,
+      100% {
+        transform: translateY(0)
+      }
+
+      50% {
+        transform: translateY(-6px)
+      }
     }
 
     /* ── STICKY MOBILE BUY BAR ─────────────────────── */
     .sticky-buy-bar {
       display: none;
-      position: fixed; bottom: 0; left: 0; right: 0; z-index: 400;
-      background: rgba(13,10,6,0.97);
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      z-index: 400;
+      background: rgba(13, 10, 6, 0.97);
       backdrop-filter: blur(12px);
-      border-top: 1px solid rgba(201,168,76,0.2);
+      border-top: 1px solid rgba(201, 168, 76, 0.2);
       padding: 12px 16px;
-      flex-direction: row; align-items: center;
-      justify-content: space-between; gap: 12px;
+      flex-direction: row;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
     }
+
     .sticky-buy-bar .sticky-price {
-      display: flex; flex-direction: column;
+      display: flex;
+      flex-direction: column;
     }
+
     .sticky-buy-bar .sticky-amount {
       font-family: 'Cormorant Garamond', serif;
-      font-size: 1.3rem; font-weight: 600; color: var(--gold);
+      font-size: 1.3rem;
+      font-weight: 600;
+      color: var(--gold);
       line-height: 1;
     }
+
     .sticky-buy-bar .sticky-orig {
-      font-size: 0.68rem; color: var(--text-dim);
+      font-size: 0.68rem;
+      color: var(--text-dim);
       text-decoration: line-through;
     }
+
     .sticky-buy-bar .btn-primary {
-      flex: 1; text-align: center;
-      padding: 13px 20px; font-size: 0.78rem;
+      flex: 1;
+      text-align: center;
+      padding: 13px 20px;
+      font-size: 0.78rem;
     }
+
     @media (max-width: 768px) {
-      .sticky-buy-bar { display: flex; }
-      .whatsapp-btn { bottom: 80px; }
+      .sticky-buy-bar {
+        display: flex;
+      }
+
+      .whatsapp-btn {
+        bottom: 80px;
+      }
     }
 
     /* ── SOCIAL PROOF TICKER ───────────────────────── */
     .proof-ticker {
-      position: fixed; bottom: 80px; left: 16px; z-index: 400;
-      background: rgba(13,10,6,0.92);
-      border: 1px solid rgba(201,168,76,0.2);
-      border-radius: 8px; padding: 10px 14px;
-      display: flex; align-items: center; gap: 10px;
+      position: fixed;
+      bottom: 80px;
+      left: 16px;
+      z-index: 400;
+      background: rgba(13, 10, 6, 0.92);
+      border: 1px solid rgba(201, 168, 76, 0.2);
+      border-radius: 8px;
+      padding: 10px 14px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
       max-width: 240px;
-      font-size: 0.72rem; color: var(--text-dim);
+      font-size: 0.72rem;
+      color: var(--text-dim);
       transform: translateX(-280px);
-      transition: transform 0.5s cubic-bezier(0.34,1.56,0.64,1);
+      transition: transform 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
       pointer-events: none;
     }
-    .proof-ticker.show { transform: translateX(0); }
+
+    .proof-ticker.show {
+      transform: translateX(0);
+    }
+
     .proof-ticker .tick-dot {
-      width: 8px; height: 8px; border-radius: 50%;
-      background: #25D366; flex-shrink: 0;
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: #25D366;
+      flex-shrink: 0;
       animation: tickPulse 2s ease infinite;
     }
-    .proof-ticker strong { color: var(--cream); }
+
+    .proof-ticker strong {
+      color: var(--cream);
+    }
+
     @keyframes tickPulse {
-      0%,100%{opacity:1;transform:scale(1)} 50%{opacity:.4;transform:scale(.7)}
+
+      0%,
+      100% {
+        opacity: 1;
+        transform: scale(1)
+      }
+
+      50% {
+        opacity: .4;
+        transform: scale(.7)
+      }
     }
 
     /* ── URGENCY LINE near buy button ──────────────── */
     .urgency-inline {
-      display: flex; align-items: center; gap: 8px;
-      background: rgba(139,26,26,0.15);
-      border: 1px solid rgba(178,34,34,0.3);
-      border-radius: 6px; padding: 10px 14px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(139, 26, 26, 0.15);
+      border: 1px solid rgba(178, 34, 34, 0.3);
+      border-radius: 6px;
+      padding: 10px 14px;
       margin-bottom: 1rem;
-      font-size: 0.78rem; color: #FF8080;
+      font-size: 0.78rem;
+      color: #FF8080;
     }
-    .urgency-inline .fire2 { font-size: 0.9rem; flex-shrink: 0; }
-    .urgency-inline strong { color: #FFB3B3; }
+
+    .urgency-inline .fire2 {
+      font-size: 0.9rem;
+      flex-shrink: 0;
+    }
+
+    .urgency-inline strong {
+      color: #FFB3B3;
+    }
 
     /* ── WHATSAPP SECTION near buy ─────────────────── */
     .wa-contact-line {
-      display: flex; align-items: center; gap: 10px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
       margin-top: 0.9rem;
-      font-size: 0.78rem; color: var(--text-dim);
+      font-size: 0.78rem;
+      color: var(--text-dim);
     }
+
     .wa-contact-line a {
-      display: inline-flex; align-items: center; gap: 6px;
-      color: #25D366; text-decoration: none;
-      font-weight: 500; transition: opacity 0.2s;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      color: #25D366;
+      text-decoration: none;
+      font-weight: 500;
+      transition: opacity 0.2s;
     }
-    .wa-contact-line a:hover { opacity: 0.8; }
-    .wa-contact-line svg { width: 15px; height: 15px; flex-shrink: 0; }
+
+    .wa-contact-line a:hover {
+      opacity: 0.8;
+    }
+
+    .wa-contact-line svg {
+      width: 15px;
+      height: 15px;
+      flex-shrink: 0;
+    }
 
     body {
       font-family: 'DM Sans', sans-serif;
@@ -1013,7 +1195,8 @@
       position: relative;
       display: flex;
       justify-content: center;
-      contain: layout style; /* isolate layout recalculation */
+      contain: layout style;
+      /* isolate layout recalculation */
     }
 
     .book-cover {
@@ -1465,16 +1648,16 @@
       <span style="color:rgba(255,255,255,0.4)">:</span>
       <span id="cdSecs">00</span><span class="countdown-label">s</span>
     </div>
-    <span class="urgency-tail">— then <strong>₦8,000</strong></span>
+    <span class="urgency-tail">— then <strong>₦15,000</strong></span>
   </div>
 
   <!-- WHATSAPP FLOAT -->
-  <a href="https://wa.me/2348000000000?text=Hi%2C%20I%20have%20a%20question%20about%20The%2045-Minute%20Man"
-     class="whatsapp-btn" target="_blank" rel="noopener"
-     aria-label="Chat on WhatsApp">
+  <a href="https://wa.me/2349138376760?text=Hi%2C%20I%20have%20a%20question%20about%20The%2045-Minute%20Man"
+    class="whatsapp-btn" target="_blank" rel="noopener" aria-label="Chat on WhatsApp">
     <div class="whatsapp-tooltip">Have a question? Chat with us</div>
     <svg viewBox="0 0 24 24" fill="currentColor">
-      <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+      <path
+        d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" />
     </svg>
   </a>
 
@@ -1490,8 +1673,7 @@
       <span class="sticky-amount">&#8358;5,000</span>
       <span class="sticky-orig">&#8358;15,000</span>
     </div>
-    <a href="https://selar.com/4471wmp121" class="btn-primary"
-       onclick="fbq('track', 'InitiateCheckout');">
+    <a href="https://selar.com/4471wmp121" class="btn-primary" onclick="fbq('track', 'InitiateCheckout');">
       Get Instant Access
     </a>
   </div>
@@ -1769,7 +1951,8 @@
       <!-- URGENCY INLINE -->
       <div class="urgency-inline">
         <span class="fire2">🔥</span>
-        <span>Launch price of <strong>₦5,000</strong> ends soon — rises to <strong>₦8,000</strong> after the countdown above</span>
+        <span>Launch price of <strong>₦5,000</strong> ends soon — rises to <strong>₦15,000</strong> after the countdown
+          above</span>
       </div>
 
       <a href="https://selar.com/4471wmp121" class="btn-primary" onclick="fbq('track', 'InitiateCheckout');">
@@ -1786,10 +1969,11 @@
       <!-- WHATSAPP CONTACT -->
       <div class="wa-contact-line">
         <span>Have a question before buying?</span>
-        <a href="https://wa.me/2348000000000?text=Hi%2C%20I%20have%20a%20question%20about%20The%2045-Minute%20Man"
-           target="_blank" rel="noopener">
+        <a href="https://wa.me/2349138376760?text=Hi%2C%20I%20have%20a%20question%20about%20The%2045-Minute%20Man"
+          target="_blank" rel="noopener">
           <svg viewBox="0 0 24 24" fill="currentColor">
-            <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+            <path
+              d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" />
           </svg>
           Chat on WhatsApp
         </a>
@@ -1964,9 +2148,9 @@
       diff -= m * 60000;
       const s = Math.floor(diff / 1000);
 
-      document.getElementById('cdHours').textContent = String(h).padStart(2,'0');
-      document.getElementById('cdMins').textContent  = String(m).padStart(2,'0');
-      document.getElementById('cdSecs').textContent  = String(s).padStart(2,'0');
+      document.getElementById('cdHours').textContent = String(h).padStart(2, '0');
+      document.getElementById('cdMins').textContent = String(m).padStart(2, '0');
+      document.getElementById('cdSecs').textContent = String(s).padStart(2, '0');
 
       if (h === 0 && m < 30) {
         document.getElementById('urgencyBar').style.background =
@@ -1978,13 +2162,13 @@
 
     // ── SOCIAL PROOF TICKER ────────────────────────
     const cities = [
-      'Lagos','Abuja','Port Harcourt','Ibadan','Kano',
-      'Enugu','Benin City','Kaduna','Owerri','Warri'
+      'Lagos', 'Abuja', 'Port Harcourt', 'Ibadan', 'Kano',
+      'Enugu', 'Benin City', 'Kaduna', 'Owerri', 'Warri', 'Calabar', 'Uyo'
     ];
     const actions = [
       'just accessed this guide',
       'just purchased this guide',
-      'is reading Chapter 3 right now',
+      'just downloaded this guide',
       'just completed the 30-day plan'
     ];
     const ticker = document.getElementById('proofTicker');
@@ -2001,7 +2185,7 @@
     // Show first ticker after 8s, then every 25-45s
     setTimeout(() => {
       showTicker();
-      setInterval(showTicker, 25000 + Math.random() * 20000);
+      setInterval(showTicker, 45000 + Math.random() * 40000);
     }, 8000);
 
     // ── STICKY BAR: show after scrolling past hero ──
